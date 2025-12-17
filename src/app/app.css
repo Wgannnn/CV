@@ -49,10 +49,9 @@
 }
 :host {
   display: block;
-  height: 100vh;
-  min-width: 100svw;
-  overflow: hidden; /* prevent page scrolling */
-  position: relative;
+  min-height: 100svh;
+  width: 100%;
+  overflow-x: hidden;
 }
 @media (max-width: 768px) {
   .menu {
