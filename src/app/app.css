@@ -1,0 +1,55 @@
+.menu {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 5; /* above gallery and overlay */
+}
+
+.menu-button {
+  font-size: 1.8rem;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.menu-button:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+.menu-options {
+  list-style: none;
+  margin: 10px 0 0 0;
+  padding: 0;
+  background: rgba(0,0,0,0.8);
+  border-radius: 8px;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s ease;
+}
+
+.menu-options.open {
+  max-height: 300px; /* enough to show all options */
+}
+
+.menu-options li a {
+  display: block;
+  padding: 10px 20px;
+  color: white;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.menu-options li a:hover {
+  background: rgba(255,255,255,0.1);
+}
+:host {
+  display: block;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden; /* prevent page scrolling */
+  position: relative;
+}

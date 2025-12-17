@@ -1,0 +1,115 @@
+:host {
+  display: block;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background: #0d0d0d; /* dark code background */
+  color: #fff;
+  font-family: 'Fira Code', 'Courier New', monospace;
+  position: relative;
+}
+
+/* subtle animated background grid lines */
+:host::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+  z-index: 0;
+}
+
+.contact-page {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  height: 100%;
+  padding: 20px;
+  text-align: center;
+}
+
+.contact-page h1 {
+  font-size: 3rem;
+  color: #00ffcc;
+  text-shadow: 0 0 10px #00ffcc;
+  margin: 0;
+}
+
+.contact-page p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  color: #aaa;
+  margin: 0;
+}
+
+/* contact cards container */
+.contact-cards {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* card styles */
+.card {
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid #00ffcc33;
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 25px 35px;
+  min-width: 200px;
+  max-width: 280px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+  cursor: pointer;
+}
+
+/* hover effects */
+.card:hover {
+  transform: translateY(-5px) rotate(-1deg);
+  box-shadow: 0 10px 30px rgba(0,255,204,0.6);
+  border-color: #00ffcc;
+}
+
+/* card headings */
+.card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #00ffcc;
+  text-shadow: 0 0 5px #00ffcc;
+}
+
+/* card links */
+.card p a {
+  font-size: 1.1rem;
+  color: #fff;
+  text-decoration: none;
+  font-family: 'Fira Code', monospace;
+  transition: color 0.2s;
+}
+
+.card p a:hover {
+  color: #00ffcc;
+}
+
+/* icons before text */
+.card h2::before {
+  content: "📞 ";
+  margin-right: 5px;
+}
+
+.card:nth-child(2) h2::before {
+  content: "📧 ";
+}
+
+/* responsive */
+@media (max-width: 700px) {
+  .contact-page h1 { font-size: 2.5rem; }
+  .contact-cards { gap: 20px; }
+  .card { padding: 20px 25px; min-width: 180px; max-width: 240px; }
+}

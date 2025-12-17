@@ -1,0 +1,18 @@
+<!-- Existing gallery -->
+<div class="gallery">
+  <div class="column" *ngFor="let col of columns; let i = index" [style.animation-duration]="30 + i*5 + 's'">
+    <div class="column-inner">
+      <img *ngFor="let img of col" [src]="'assets/' + img" />
+      <img *ngFor="let img of col" [src]="'assets/' + img" />
+    </div>
+  </div>
+</div>
+
+<div class="overlay"></div>
+
+<!-- Existing content -->
+<div class="content">
+    <p class="int">Hi! I'm</p>
+    <h1>Wiktor Wagan</h1>
+    <p>Programmer</p>
+</div>

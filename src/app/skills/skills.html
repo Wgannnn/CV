@@ -1,0 +1,13 @@
+<div class="skills-page">
+  <h1>// My Skills</h1>
+
+  <div class="skills-list">
+    <div class="skill" *ngFor="let skill of skills">
+      <span class="skill-name">{{skill.name}}</span>
+      <div class="skill-bar">
+        <div class="skill-progress" [style.width.%]="skill.level"></div>
+      </div>
+      <span class="skill-level">{{skill.level}}%</span>
+    </div>
+  </div>
+</div>
