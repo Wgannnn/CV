@@ -73,3 +73,35 @@
 h1{
   color: #ff3333;
 }
+/* Mobile-friendly adjustments */
+@media (max-width: 768px) {
+  .page {
+    padding: 20px 15px;
+    gap: 15px;
+  }
+
+  .page p {
+    font-size: 1rem;
+    padding: 15px 20px;
+    max-width: 100%;
+  }
+
+  .live-code {
+    position: relative; /* stack below text */
+    top: auto;
+    left: auto;
+    width: 100%;
+    height: auto;
+    padding: 15px;
+    font-size: 0.9rem;
+    text-shadow: 0 0 3px rgba(0,255,204,0.5);
+    overflow-x: auto;
+    margin-top: 20px;
+  }
+
+  /* optional: reduce blinking cursor size */
+  .live-code::after {
+    font-size: 0.9rem;
+  }
+}
+
