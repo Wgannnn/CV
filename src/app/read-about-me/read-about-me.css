@@ -1,69 +1,39 @@
 :host {
   display: block;
-  min-height: 100vh; /* allow height to grow */
-  width: 100vw;
+  min-height: 100vh;       /* allow the container to grow */
+  width: 100%;
   background: #0d0d0d;
   font-family: 'Fira Code', monospace;
   color: #fff;
   position: relative;
-  overflow-y: auto; /* allow vertical scrolling */
+  overflow-x: hidden;      /* prevent horizontal scroll */
+  overflow-y: auto;        /* allow vertical scroll */
+  padding-bottom: 50px;    /* extra space for scrolling */
 }
 
 
 .page {
-  position: relative;
-  z-index: 2;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start; /* top-align content */
   align-items: center;
   text-align: center;
-  height: 100%;
   padding: 50px 20px;
   gap: 25px;
+  width: 100%;
 }
 
 /* paragraphs */
 .page p {
-  font-size: 1.2rem;
-  max-width: 650px;
-  line-height: 1.7;
+  font-size: 1.1rem;
+  max-width: 100%;
+  line-height: 1.6;
   background: rgba(0,0,0,0.6);
   backdrop-filter: blur(6px);
-  padding: 20px 30px;
+  padding: 15px 20px;
   border-radius: 16px;
   box-shadow: 0 6px 20px rgba(0,0,0,0.35);
-  z-index: 2;
-  position: relative;
-}
-
-/* live code container */
-.live-code {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 40%;
-  height: 100%;
-  padding: 20px;
-  z-index: 1;
-  color: rgba(0,255,204,0.8);
-  white-space: pre;
-  pointer-events: none;
-  font-size: 1rem;
-  line-height: 1.5;
-  text-shadow: 0 0 4px rgba(0,255,204,0.5);
-  overflow: hidden;
-}
-
-/* blinking cursor */
-.live-code::after {
-  content: '|';
-  animation: blink 1s step-start infinite;
-}
-
-@keyframes blink {
-  0%,50%,100% { opacity:1; }
-  25%,75% { opacity:0; }
+  word-wrap: break-word; /* prevent overflow */
 }
 
 /* highlight words in paragraphs */
@@ -79,25 +49,8 @@ h1{
   .page {
     padding: 20px 15px;
     gap: 15px;
-    flex-direction: column; /* already okay */
-    align-items: stretch;   /* stretch to fill width */
-  }
-
-  .page p {
-    font-size: 1rem;
-    padding: 15px 20px;
-    max-width: 100%;
-    word-wrap: break-word; /* ensure long words don’t overflow */
-  }
-
-  .live-code {
-    position: relative; /* stack below paragraphs */
-    width: 100%;
-    height: auto;
-    padding: 15px;
-    overflow-x: auto;   /* allow horizontal scroll for long code lines */
-    margin-top: 20px;
   }
 }
+
 
 
