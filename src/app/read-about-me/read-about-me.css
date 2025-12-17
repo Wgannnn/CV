@@ -1,13 +1,14 @@
 :host {
   display: block;
-  height: 100vh;
+  min-height: 100vh; /* allow height to grow */
   width: 100vw;
   background: #0d0d0d;
   font-family: 'Fira Code', monospace;
   color: #fff;
   position: relative;
-  overflow: hidden;
+  overflow-y: auto; /* allow vertical scrolling */
 }
+
 
 .page {
   position: relative;
@@ -78,30 +79,25 @@ h1{
   .page {
     padding: 20px 15px;
     gap: 15px;
+    flex-direction: column; /* already okay */
+    align-items: stretch;   /* stretch to fill width */
   }
 
   .page p {
     font-size: 1rem;
     padding: 15px 20px;
     max-width: 100%;
+    word-wrap: break-word; /* ensure long words don’t overflow */
   }
 
   .live-code {
-    position: relative; /* stack below text */
-    top: auto;
-    left: auto;
+    position: relative; /* stack below paragraphs */
     width: 100%;
     height: auto;
     padding: 15px;
-    font-size: 0.9rem;
-    text-shadow: 0 0 3px rgba(0,255,204,0.5);
-    overflow-x: auto;
+    overflow-x: auto;   /* allow horizontal scroll for long code lines */
     margin-top: 20px;
   }
-
-  /* optional: reduce blinking cursor size */
-  .live-code::after {
-    font-size: 0.9rem;
-  }
 }
+
 
