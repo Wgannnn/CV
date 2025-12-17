@@ -1,7 +1,7 @@
 :host {
   display: block;
-  height: 100vh;
-  width: 100vw;
+  min-height: 100svh;   /* mobile-safe viewport */
+  width: 100%;
   background: #0d0d0d;
   color: #fff;
   font-family: 'Fira Code', monospace;
@@ -9,6 +9,7 @@
   padding: 40px;
   box-sizing: border-box;
 }
+
 
 .skills-page h1 {
   color: #00ffd6;
@@ -56,6 +57,7 @@
 
 /* bar background */
 .skill-bar {
+  min-width: 0;
   position: relative;
   flex: 1;
   height: 18px;
@@ -83,3 +85,14 @@
     transform: translateX(0);
   }
 }
+@media (max-width: 768px) {
+  :host {
+    padding: 20px;
+  }
+
+  .skill span {
+    width: 110px;
+    font-size: 0.85rem;
+  }
+}
+
