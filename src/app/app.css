@@ -1,9 +1,10 @@
 .menu {
-  position: absolute;
-  top: 20px;
-  right: 5px;
-  z-index: 5; /* above gallery and overlay */
+  position: fixed;
+  top: env(safe-area-inset-top, 8px);
+  right: env(safe-area-inset-right, 8px);
+  z-index: 999;
 }
+
 
 .menu-button {
   font-size: 1.8rem;
@@ -49,7 +50,14 @@
 :host {
   display: block;
   height: 100vh;
-  width: 100vw;
+  min-width: 100svw;
   overflow: hidden; /* prevent page scrolling */
   position: relative;
 }
+@media (max-width: 768px) {
+  .menu {
+    top: env(safe-area-inset-top, 6px);
+    right: env(safe-area-inset-right, 6px);
+  }
+}
+
