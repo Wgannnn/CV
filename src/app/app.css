@@ -1,10 +1,6 @@
 .menu {
   position: fixed;
-  top: 0;
-  right: 0;
   z-index: 9999;
-  padding-top: env(safe-area-inset-top, 0px);
-  padding-right: env(safe-area-inset-right, 0px);
 }
 
 
