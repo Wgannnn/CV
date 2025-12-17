@@ -1,15 +1,14 @@
 :host {
   display: block;
-  min-height: 100vh;       /* allow the container to grow */
+  min-height: 100svh;
   width: 100%;
   background: #0d0d0d;
   font-family: 'Fira Code', monospace;
   color: #fff;
   position: relative;
-  overflow-x: hidden;      /* prevent horizontal scroll */
-  overflow-y: auto;        /* allow vertical scroll */
-  padding-bottom: 50px;    /* extra space for scrolling */
+  overflow-x: hidden; /* only block horizontal */
 }
+
 
 
 .page {
