@@ -1,12 +1,16 @@
 .menu {
   position: fixed;
-  top: env(safe-area-inset-top, 8px);
-  right: env(safe-area-inset-right, 8px);
-  z-index: 999;
+  top: 0;
+  right: 0;
+  z-index: 9999;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
 }
 
 
+
 .menu-button {
+  margin: 6px;
   font-size: 1.8rem;
   background: rgba(0,0,0,0.6);
   color: white;
@@ -14,8 +18,8 @@
   padding: 10px 15px;
   border-radius: 8px;
   cursor: pointer;
-  transition: background 0.3s;
 }
+
 
 .menu-button:hover {
   background: rgba(255,255,255,0.2);
