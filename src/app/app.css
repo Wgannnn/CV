@@ -53,10 +53,4 @@
   width: 100%;
   overflow-x: hidden;
 }
-@media (max-width: 768px) {
-  .menu {
-    top: env(safe-area-inset-top, 6px);
-    right: env(safe-area-inset-right, 6px);
-  }
-}
 
