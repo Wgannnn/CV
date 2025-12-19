@@ -10,7 +10,7 @@ describe('CareerHistory', () => {
     await TestBed.configureTestingModule({
       imports: [CareerHistory]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(CareerHistory);
     component = fixture.componentInstance;

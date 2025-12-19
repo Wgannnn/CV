@@ -10,7 +10,7 @@ describe('Contact', () => {
     await TestBed.configureTestingModule({
       imports: [Contact]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(Contact);
     component = fixture.componentInstance;

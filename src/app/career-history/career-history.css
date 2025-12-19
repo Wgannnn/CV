@@ -40,7 +40,8 @@
   margin-bottom: 50px;
   display: flex;
   flex-direction: column;
-  opacity: 0; /* start hidden */
+  opacity: 0;
+  /* start hidden */
   transform: translateX(-50px);
   transition: all 0.6s ease-out;
 }
@@ -84,6 +85,7 @@
   .timeline {
     padding-left: 30px;
   }
+
   .timeline-item .content {
     margin-left: 40px;
   }

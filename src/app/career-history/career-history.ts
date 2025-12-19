@@ -10,7 +10,7 @@ import { Component, AfterViewInit, ElementRef } from '@angular/core';
 })
 export class CareerHistory implements AfterViewInit {
 
-  constructor(private elRef: ElementRef) {}
+  constructor(private elRef: ElementRef) { }
 
   ngAfterViewInit() {
     const items = this.elRef.nativeElement.querySelectorAll('.timeline-item');

@@ -8,4 +8,4 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
   templateUrl: './read-about-me.html',
   styleUrls: ['./read-about-me.css']
 })
-export class ReadAboutMe{}
+export class ReadAboutMe { }

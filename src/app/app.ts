@@ -1,24 +1,15 @@
-import { Component, signal } from '@angular/core';
-import { Introduction } from './introduction/introduction';
-import { ReadAboutMe } from './read-about-me/read-about-me';
-import { CareerHistory } from './career-history/career-history';
-import { Contact } from './contact/contact';
-import { Skills } from './skills/skills';
+// app.ts
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, Introduction, ReadAboutMe, CareerHistory, Skills, Contact],
+  imports: [CommonModule, RouterModule],
   templateUrl: './app.html',
   styleUrls: ['./app.css']
 })
 export class App {
   menuOpen = false;
-  currentPage = signal<'home' | 'about' | 'career' | 'skills' | 'contact'>('home');
-
-  navigate(page: 'home' | 'about' | 'career' | 'skills' | 'contact') {
-    this.currentPage.set(page);
-    this.menuOpen = false;
-  }
 }

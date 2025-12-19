@@ -1,16 +1,14 @@
 <div class="menu">
   <button class="menu-button" (click)="menuOpen = !menuOpen">☰</button>
   <ul class="menu-options" [class.open]="menuOpen">
-    <li><a (click)="navigate('home')">Home</a></li>
-    <li><a (click)="navigate('about')">Read About Me</a></li>
-    <li><a (click)="navigate('career')">Career History</a></li>
-    <li><a (click)="navigate('skills')">Skills</a></li>
-    <li><a (click)="navigate('contact')">Contact</a></li>
+    <li><a routerLink="/" (click)="menuOpen=false">Home</a></li>
+    <li><a routerLink="/about" (click)="menuOpen=false">Read About Me</a></li>
+    <li><a routerLink="/career" (click)="menuOpen=false">Career History</a></li>
+    <li><a routerLink="/skills" (click)="menuOpen=false">Skills</a></li>
+    <li><a routerLink="/contact" (click)="menuOpen=false">Contact</a></li>
   </ul>
 </div>
 
-<app-introduction *ngIf="currentPage() === 'home'"></app-introduction>
-<app-read-about-me *ngIf="currentPage() === 'about'"></app-read-about-me>
-<app-career-history *ngIf="currentPage() === 'career'"></app-career-history>
-<app-skills *ngIf="currentPage() === 'skills'"></app-skills>
-<app-contact *ngIf="currentPage() === 'contact'"></app-contact>
+
+<router-outlet></router-outlet>
+

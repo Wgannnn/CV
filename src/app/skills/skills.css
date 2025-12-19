@@ -1,6 +1,7 @@
 :host {
   display: block;
-  min-height: 100svh;   /* mobile-safe viewport */
+  min-height: 100svh;
+  /* mobile-safe viewport */
   width: 100%;
   background: #0d0d0d;
   color: #fff;
@@ -37,16 +38,45 @@
 }
 
 /* stagger like career timeline */
-.skill:nth-child(1) { animation-delay: 0.2s; }
-.skill:nth-child(2) { animation-delay: 0.35s; }
-.skill:nth-child(3) { animation-delay: 0.5s; }
-.skill:nth-child(4) { animation-delay: 0.65s; }
-.skill:nth-child(5) { animation-delay: 0.8s; }
-.skill:nth-child(6) { animation-delay: 0.95s; }
-.skill:nth-child(7) { animation-delay: 1.1s; }
-.skill:nth-child(8) { animation-delay: 1.25s; }
-.skill:nth-child(9) { animation-delay: 1.4s; }
-.skill:nth-child(10) { animation-delay: 1.55s; }
+.skill:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.skill:nth-child(2) {
+  animation-delay: 0.35s;
+}
+
+.skill:nth-child(3) {
+  animation-delay: 0.5s;
+}
+
+.skill:nth-child(4) {
+  animation-delay: 0.65s;
+}
+
+.skill:nth-child(5) {
+  animation-delay: 0.8s;
+}
+
+.skill:nth-child(6) {
+  animation-delay: 0.95s;
+}
+
+.skill:nth-child(7) {
+  animation-delay: 1.1s;
+}
+
+.skill:nth-child(8) {
+  animation-delay: 1.25s;
+}
+
+.skill:nth-child(9) {
+  animation-delay: 1.4s;
+}
+
+.skill:nth-child(10) {
+  animation-delay: 1.55s;
+}
 
 /* skill name */
 .skill span {
@@ -61,7 +91,7 @@
   position: relative;
   flex: 1;
   height: 18px;
-  background: rgba(255,255,255,0.06);
+  background: rgba(255, 255, 255, 0.06);
   border-radius: 12px;
   overflow: hidden;
 }
@@ -69,12 +99,10 @@
 /* static fill (no animation) */
 .skill-progress {
   height: 100%;
-  background: linear-gradient(
-    120deg,
-    #00ffd6,
-    #00e0c6,
-    #00ffd6
-  );
+  background: linear-gradient(120deg,
+      #00ffd6,
+      #00e0c6,
+      #00ffd6);
   border-radius: 12px;
 }
 
@@ -85,6 +113,7 @@
     transform: translateX(0);
   }
 }
+
 @media (max-width: 768px) {
   :host {
     padding: 20px;
@@ -95,4 +124,3 @@
     font-size: 0.85rem;
   }
 }
-
