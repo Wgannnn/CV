@@ -72,13 +72,25 @@ header>div:not(.card5):hover {
   }
 }
 
-@media (min-width: 769px) and (max-width: 1024px) {
+@media (max-width: 768px) {
   header {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns on tablet */
+    width: 95vw;
+    height: auto;
+    padding: 15px;
+    gap: 15px;
+
+    display: grid;
+    grid-template-columns: 1fr; /* single column */
     grid-template-rows: auto;
   }
 
+  /* Make card5 appear first */
   .card5 {
-    font-size: 1.8rem;
+    order: -1; /* negative order pushes it to the top */
+    font-size: 1.5rem;
+  }
+
+  header>div:not(.card5) {
+    order: 0; /* all other cards remain in normal order */
   }
 }
