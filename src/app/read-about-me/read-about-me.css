@@ -1,0 +1,83 @@
+/* ---------------- HEADER ---------------- */
+header{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    border-bottom: 1px solid whitesmoke;
+    font-family: 'Ciguatera', sans-serif;
+}
+
+h1 {
+  font-size: 4rem;
+  color: whitesmoke;
+  white-space: nowrap;
+}
+
+h1 span {
+  opacity: 0;
+  display: inline-block;
+  animation: appear 0.3s forwards;
+}
+h1 span.space {
+  display: inline-block;
+  width: 0.5ch;
+  animation: appear 0.3s forwards;
+}
+
+@keyframes appear { to { opacity: 1; } }
+
+/* ---------------- SECTION / CARDS ---------------- */
+section{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.cards{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap; /* Wrap cards on small screens */
+}
+
+.card{
+  width: 450px;
+  max-width: 90%; /* responsive width */
+  height: 600px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 1.5rem;
+  color: white;
+  padding: 20px;
+
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px) saturate(1.2);
+  -webkit-backdrop-filter: blur(12px) saturate(1.2);
+
+  transition: transform 0.1s ease, box-shadow 0.2s ease;
+  will-change: transform;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+#uno:hover { border-color: greenyellow; }
+#dos:hover { border-color: yellow; }
+#tres:hover { border-color: red; }
+
+/* Adjust for mobile phones */
+@media (max-width: 768px) {
+    h1 { font-size: 3rem; }
+    .cards { flex-direction: column; gap: 1.5rem; }
+    .card { width: 90%; height: auto; padding: 15px; font-size: 1.2rem; }
+}
