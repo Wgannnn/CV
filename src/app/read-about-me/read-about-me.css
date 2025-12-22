@@ -728,6 +728,10 @@ p {
     font-size: 1em;
     margin: 8px 15px;
   }
+  .bus{
+    width: 70%; /* fit mobile */
+    height: 40%; /* scale down bus */
+  }
 }
 
 /* Extra small screens (phones) */
@@ -753,5 +757,8 @@ p {
   .right-section > p {
     font-size: 0.95em;
     margin: 5px 10px;
+  }
+  .bus{
+    width: 65%;
   }
 }
