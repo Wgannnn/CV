@@ -385,7 +385,7 @@ p {
     /* vertical centering */
     align-items: stretch;
     /* let children use full width */
-    height: 100dvh;
+    height: 100vh;
     padding: 0 20px;
   }
 
@@ -443,7 +443,7 @@ p {
 @media (max-width: 480px) {
   header {
     padding: 0 10px;
-    height: 100dvh;
+    height: 100vh;
   }
 
   h1 {
@@ -707,7 +707,7 @@ p {
     height: auto;                /* let content determine height */
     padding: 20px 0;
     overflow: visible;  
-    height: 100dvh; /* allow animations to show */
+    height: 100vh; /* allow animations to show */
   }
 
   .left-section {
@@ -738,7 +738,7 @@ p {
 @media (max-width: 480px) {
   .main {
     padding: 10px 0;
-    height: 100dvh;
+    height: 100vh;
   }
 
   .left-section {
