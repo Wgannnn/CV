@@ -1,9 +1,15 @@
+.container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  font-family: sans-serif;
+}
 /* Base header */
 header {
   position: relative;
   width: 100%;
   height: 100vh;
-  font-family: sans-serif;
+  
   overflow: hidden;
   display: flex;
 }
@@ -464,5 +470,288 @@ p {
 
   .snowflake {
     font-size: 0.6em;
+  }
+}
+.main{
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center; /* horizontal centering */
+  align-items: center;
+  overflow: hidden;
+}
+.right-section {
+  width: 40%;
+  float: left;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: whitesmoke;
+  text-align: center;
+  padding: 20px; /* subtle frosted effect */
+  border-radius: 20px;
+  backdrop-filter: blur(10px); /* nice glassy effect */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.right-section > h2 {
+  font-size: 2em;
+  margin-bottom: 10px;
+  color: #ffebc1; /* warm accent color */
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.right-section > p {
+  font-size: 1.2em;
+  margin: 10px 20px;
+  line-height: 1.5em;
+  color: #f0f0f0;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+.left-section {
+  width: 60%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+  transition: background 5s ease;
+  height: 100%; /* smoother color transition fallback */
+}
+
+/* Stars */
+.stars .star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  top: calc(var(--top,50%));
+  left: calc(var(--left,50%));
+  opacity: 0;
+}
+
+@keyframes twinkle {
+  0%,100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+/* Clouds */
+.clouds .cloud {
+  position: absolute;
+  top: 20%;
+  left: var(--left);
+  width: 150px;
+  height: 70px;
+  background: rgba(255,255,255,0.5);
+  border-radius: 50%;
+  animation: cloudMove linear infinite;
+  animation-duration: var(--speed);
+}
+
+@keyframes cloudMove {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-200%); }
+}
+
+/* Street lamps (behind bus) */
+.street-lamps {
+  position: absolute;
+  bottom: 0;
+  width: 200%; /* extended width for smooth looping */
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.lamp {
+  position: absolute;
+  bottom: 0;
+  left: var(--left);
+  width: 12px;
+  height: 250px; /* taller than bus */
+  animation: lampMove linear infinite;
+  animation-duration: var(--speed);
+  z-index: 1;
+}
+
+@keyframes lampMove {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-200%); }
+}
+
+.lamp::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 800px; /* lamp pole */
+  background: #555;
+}
+
+.lamp-bulb {
+  position: absolute;
+  bottom: 800px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 20px;
+  background: yellow;
+  border-radius: 50%;
+  opacity: 0;
+  box-shadow: 0 0 20px yellow;
+  transition: opacity 2s ease;
+}
+
+@keyframes flicker {
+  0%,100% { opacity:1; }
+  50% { opacity:0.5; }
+}
+
+/* Bus */
+.bus {
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  width: 95%;
+  height: 50%; /* huge bus */
+  background: #ff4444;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  z-index: 2;
+  animation: busSway 3s ease-in-out infinite alternate;
+}
+
+/* Bus sway */
+@keyframes busSway {
+  0% { transform: translateY(0px) rotate(0.3deg); }
+  50% { transform: translateY(-5px) rotate(-0.3deg); }
+  100% { transform: translateY(0px) rotate(0.3deg); }
+}
+
+/* Bus windows */
+.window {
+  width: 15%;
+  height: 65%;
+  background: #a0e1ff;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Figure */
+.figure {
+  position: absolute;
+  bottom: -70%; /* push figure down so only head+shoulders show */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;      /* bigger width */
+  height: 120%;    /* taller figure so body is mostly hidden */
+  z-index: 1;      /* behind bus red body */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Head */
+.figure .head {
+  width: 70%;
+  aspect-ratio: 1 / 1;
+  background: #222;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+/* Shoulders */
+.figure .shoulders {
+  width: 100%;
+  height: 40%;
+  background: #222;
+  border-radius: 50% / 30%;
+  margin-top: -10%; /* overlap with head */
+  z-index: 2;
+}
+/* Bus headlights */
+.bus .headlights {
+  position: absolute;
+  bottom: 10px;
+  left: 95%;
+  width: 50px;
+  height: 25px;
+  background: rgba(255,255,200,0.5);
+  border-radius: 50%;
+  opacity: 0;
+  box-shadow: 0 0 60px rgba(255,255,180,0.8);
+  transition: opacity 5s ease; /* smooth fade */
+}
+
+/* Day/Night toggle */
+.left-section.day .lamp::after,
+.left-section.day .bus .headlights,
+.left-section.day .stars .star { opacity: 0; }
+
+.left-section.night .lamp::after,
+.left-section.night .bus .headlights,
+.left-section.night .stars .star { opacity: 1; }
+@media (max-width: 768px) {
+  .main {
+    flex-direction: column;      /* stack left & right sections vertically */
+    justify-content: flex-start; /* start from top */
+    align-items: center;         /* center horizontally */
+    height: auto;                /* let content determine height */
+    padding: 20px 0;
+    overflow: visible;  
+    height: 100dvh; /* allow animations to show */
+  }
+
+  .left-section {
+    width: 100%;
+    height: 50vh; /* scale down for mobile */
+  }
+
+  .right-section {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .right-section > h2 {
+    font-size: 1.8em;
+  }
+
+  .right-section > p {
+    font-size: 1em;
+    margin: 8px 15px;
+  }
+}
+
+/* Extra small screens (phones) */
+@media (max-width: 480px) {
+  .main {
+    padding: 10px 0;
+    height: 100dvh;
+  }
+
+  .left-section {
+    height: 40vh; /* smaller bus area */
+  }
+
+  .right-section {
+    width: 95%;
+    padding: 10px;
+  }
+
+  .right-section > h2 {
+    font-size: 1.5em;
+  }
+
+  .right-section > p {
+    font-size: 0.95em;
+    margin: 5px 10px;
   }
 }
