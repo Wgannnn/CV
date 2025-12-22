@@ -837,14 +837,14 @@ p {
   }
 
   .bus {
-    width: 65%;
+    width: 70%;
   }
     .lamp::before {
-    height: 300px;
+    height: 150px;
     /* lamp pole */
   }
 
   .lamp-bulb {
-    bottom: 300px;
+    bottom: 150px;
   }
 }
