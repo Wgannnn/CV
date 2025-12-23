@@ -72,4 +72,10 @@ export class ReadAboutMe implements AfterViewInit {
       step();
     });
   }
+  changeCD(image: string) {
+    const cd = document.getElementById('cd-image') as HTMLImageElement;
+    if (cd) {
+      cd.src = image;
+    }
+  }
 }

@@ -1,14 +1,10 @@
-<div class="menu">
-  <button class="menu-button" (click)="menuOpen = !menuOpen">☰</button>
-  <ul class="menu-options" [class.open]="menuOpen">
-    <li><a routerLink="/" (click)="menuOpen=false">Home</a></li>
-    <li><a routerLink="/about" (click)="menuOpen=false">Read About Me</a></li>
-    <li><a routerLink="/career" (click)="menuOpen=false">Career History</a></li>
-    <li><a routerLink="/skills" (click)="menuOpen=false">Skills</a></li>
-    <li><a routerLink="/contact" (click)="menuOpen=false">Contact</a></li>
+<nav class="menu" #menu>
+  <ul class="menu-options">
+    <li><a routerLink="/" [class.active]="router.url === '/'">HOME</a></li>
+    <li><a routerLink="/about" [class.active]="router.url === '/about'">ABOUT ME</a></li>
+    <li><a routerLink="/career" [class.active]="router.url === '/career'">CAREER</a></li>
+    <li><a routerLink="/skills" [class.active]="router.url === '/skills'">SKILLS</a></li>
+    <li><a routerLink="/contact" [class.active]="router.url === '/contact'">CONTACT</a></li>
   </ul>
-</div>
-
-
+</nav>
 <router-outlet></router-outlet>
-
