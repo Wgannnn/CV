@@ -5,6 +5,11 @@ body {
   min-height: 100%;
   background: #0d0d0d;
   overflow-x: hidden;
+  cursor: none !important;
+}
+
+* {
+  cursor: none !important;
 }
 html{
   scroll-behavior: smooth;
@@ -13,4 +18,42 @@ html{
 
 body {
   -webkit-overflow-scrolling: touch;
+}
+
+/* Custom crosshair cursor */
+.custom-cursor {
+  position: fixed;
+  width: 32px;
+  height: 32px;
+  pointer-events: none;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+}
+
+.custom-cursor svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Crosshair spin animation */
+@keyframes spin-cursor {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Spinning state */
+.custom-cursor.spinning {
+  animation: spin-cursor 1s linear infinite;
+}
+
+/* Hide custom cursor on mobile */
+@media (max-width: 768px) {
+  .custom-cursor {
+    display: none !important;
+  }
+  
+  * {
+    cursor: auto !important;
+  }
 }
