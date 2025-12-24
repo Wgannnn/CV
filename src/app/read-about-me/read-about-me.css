@@ -21,51 +21,31 @@
     color: whitesmoke;
     text-transform: uppercase;
     white-space: nowrap;
-    /* Use fixed positioning so we can animate via transform smoothly while scrolling */
     position: fixed;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%) scale(1);
-    display: inline-block;
     transform-origin: center center;
     will-change: transform;
     transition: transform 240ms cubic-bezier(.2, .9, .2, 1);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    overflow: hidden;
     pointer-events: none;
     max-height: 35vh;
 }
 
-/* Journey section styles */
+/* ================= JOURNEY ================= */
+
 .main {
     min-height: 100svh;
     display: flex;
     justify-content: center;
-    box-sizing: border-box;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: 'Inter', sans-serif;
     overflow: hidden;
 }
 
 .journey-section {
     max-width: 1200px;
     width: 100%;
-    min-height: 100svh;
-    display: flex;
-    align-items: flex-start; /* ⬅️ key */
-    justify-content: center;
-    padding: 80px 24px; /* breathing room */
-}
-
-
-.cards-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    margin-top: 24px;
+    padding: 80px 24px;
 }
 
 .journey-section h2 {
@@ -75,6 +55,12 @@
     margin-bottom: 30px;
     text-transform: uppercase;
     letter-spacing: 2px;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
 }
 
 .belief-card {
@@ -95,201 +81,248 @@
 .belief-card h3 {
     color: #FF6B6B;
     font-size: 1.3rem;
-    margin: 0 0 10px 0;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    font-weight: 600;
+    margin-bottom: 10px;
 }
 
 .belief-card p {
     color: #ddd;
-    line-height: 1.7;
-    margin: 0;
     font-size: 0.95rem;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    font-weight: 400;
-    letter-spacing: 0.3px;
+    line-height: 1.7;
 }
 
-/* Rotating words card */
-.rotating-card {
-    background: linear-gradient(135deg, rgba(255, 107, 107, 0.12) 0%, rgba(255, 152, 0, 0.08) 100%);
+/* ================= PROJECTS ================= */
+
+.projects {
+    min-height: 100svh;
+    display: flex;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+}
+
+.projects-section {
+    max-width: 1200px;
+    width: 100%;
+    padding: 80px 24px;
+}
+
+.projects h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    color: whitesmoke;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 24px;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.project-card {
+    background-color: #1f1f1f;
+    border-radius: 10px;
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-card h3 {
+    color: whitesmoke;
+    font-size: 1.5rem;
+}
+
+.project-link {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 6px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    color: #FF6B6B;
+    border: 1px solid rgba(255, 107, 107, 0.4);
+    transition: all 0.3s ease;
+}
+
+.project-link:hover {
+    background: rgba(255, 107, 107, 0.15);
+    border-color: rgba(255, 107, 107, 0.8);
+}
+
+/* ================= SKILLS ================= */
+
+.skills {
+    min-height: 100svh;
+    display: flex;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+}
+
+.skills-section {
+    max-width: 1200px;
+    width: 100%;
+    padding: 80px 24px;
+}
+.skills-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.skills-content h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    color: whitesmoke;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 24px;
+}
+
+/* TRACK */
+.skills-track {
+    position: relative;
+    overflow: hidden;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 15px;
+
+}
+
+/* MOVING ROW */
+.skills-cards {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    animation: skillsScroll 40s linear infinite;
+}
+
+/* SKILL CARD */
+.skill-card {
+    position: relative;
+    min-width: 160px;
+    height: 50px; /* starting height */
+    padding: 18px 28px;
+    background: rgba(255, 107, 107, 0.06);
     border: 1px solid rgba(255, 107, 107, 0.18);
     border-radius: 12px;
-    padding: 40px 30px;
-    margin-bottom: 40px;
-    backdrop-filter: blur(5px);
+    color: #FF6B6B;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* center skill name initially */
+    align-items: center;
+    overflow: hidden; /* hide tooltip until hover */
+    transition: 
+        height 0.35s ease, 
+        transform 0.35s ease, 
+        background 0.3s ease, 
+        border-color 0.3s ease;
+    z-index: 1;
+}
+
+.skill-card:hover {
+    transform: scale(1.15); /* reduced scale to avoid extreme overlap */
+    background: rgba(255, 107, 107, 0.14);
+    border-color: rgba(255, 107, 107, 0.55);
+    z-index: 10; /* bring hovered card on top */
+}
+
+.skill-name {
+    display: block;
     text-align: center;
 }
 
-.rotating-card h3 {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    font-size: 1.8rem;
-    color: #ddd;
-    margin: 0;
-    font-weight: 500;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    flex-wrap: nowrap;
-    white-space: nowrap;
-    line-height: 1;
-}
-
-.unbreakable {
-    white-space: nowrap;
-    color: #ddd;
-    flex-shrink: 0;
-    line-height: 1;
-}
-
-/* Rotating words */
-.word-rotate {
-    position: relative;
-    overflow: hidden;
-    min-width: auto;
-    width: 380px;
-    height: 1.2em;
-    white-space: nowrap;
-    display: inline-block;
-    vertical-align: middle;
-    flex-shrink: 0;
-    line-height: 1.2;
-}
-
-.word-rotate span {
-    position: absolute;
-    left: 0;
-    top: 0;
+/* INFO TOOLTIP */
+.skill-info {
     opacity: 0;
-    transform: translateY(100%) scale(0.8);
-    font-weight: 600;
-    animation: rotateWords 8s ease-in-out infinite;
-    line-height: 1.2;
+    color: #ddd;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    text-align: center;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateY(20px);
 }
 
-.word-rotate span:nth-child(1) {
-    color: #FF6B6B;
-    animation-delay: 0s;
+.skill-card:hover .skill-info {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.word-rotate span:nth-child(2) {
-    color: #FF8A65;
-    animation-delay: 2s;
+/* PAUSE ON HOVER */
+.skills-track:hover .skills-cards {
+    animation-play-state: paused;
 }
 
-.word-rotate span:nth-child(3) {
-    color: #FFB74D;
-    animation-delay: 4s;
+/* SCROLL ANIMATION */
+@keyframes skillsScroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+.skill-card {
+    flex-shrink: 0; /* important to prevent shrinking */
 }
 
-.word-rotate span:nth-child(4) {
-    color: #FF6B6B;
-    animation-delay: 6s;
-}
+/* ================= RESPONSIVE ================= */
 
-@keyframes rotateWords {
-    0% {
-        opacity: 0;
-        transform: translateY(100%) scale(0.8);
-    }
-
-    10% {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-
-    25% {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-
-    35% {
-        opacity: 0;
-        transform: translateY(-100%) scale(0.8);
-    }
-
-    100% {
-        opacity: 0;
-        transform: translateY(-100%) scale(0.8);
-    }
-}
-
+/* ================= RESPONSIVE ================= */
 @media (max-width: 768px) {
-    .title {
-        font-size: 12vw;
+    /* Make the track allow overflow */
+    .skills-track {
+        overflow-x: auto;    /* enable horizontal scrolling */
+        overflow-y: hidden;  /* hide vertical overflow */
+        -webkit-overflow-scrolling: touch; /* smooth scroll on iOS */
+        width: 100%;
+        padding: 15px 0;
     }
 
-    .cards-grid {
-        grid-template-columns: 1fr;
+    /* Skills row */
+    .skills-cards {
+        display: flex;
+        flex-wrap: nowrap;   /* keep in a single row */
+        gap: 12px;
+        min-width: max-content; /* ensure it can grow beyond container */
     }
 
-    .rotating-card {
-        padding: 28px 24px;
-        margin-bottom: 24px;
+    /* Hide scrollbar */
+    .skills-cards::-webkit-scrollbar {
+        display: none;
+    }
+    .skills-cards {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
     }
 
-    .journey-section h2 {
-        margin-bottom: 20px;
-        font-size: 2.2rem;
+    /* Skill card styles */
+    .skill-card {
+        min-width: 120px;
+        height: 50px;
+        padding: 12px 16px;
+        font-size: 0.85rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: height 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+        flex-shrink: 0; /* important: prevent cards from shrinking */
     }
 
-    .word-rotate {
-        max-width: 250px;
-    }
-}
-
-@media (max-width: 480px) {
-    .title {
-        font-size: 10vw;
-        max-height: 35vh;
+    .skill-card:hover {
+        height: 120px;
     }
 
-    .cards-grid {
-        grid-template-columns: 1fr;
+    .skill-name {
+        margin-top: 2px;
+        text-align: center;
     }
 
-    .rotating-card {
-        padding: 28px 24px;
-        margin-bottom: 24px;
-    }
-
-    .journey-section h2 {
-        margin-bottom: 20px;
-        font-size: 2.2rem;
-    }
-
-    .rotating-card h3 {
-        font-size: 1.2rem;
-    }
-
-    .word-rotate {
-        max-width: 200px;
-    }
-}
-
-@media (max-width: 360px) {
-    .title {
-        font-size: 8vw;
-    }
-    .cards-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .rotating-card {
-        padding: 28px 24px;
-        margin-bottom: 24px;
-    }
-
-    .journey-section h2 {
-        margin-bottom: 20px;
-        font-size: 2.2rem;
-    }
-    .rotating-card h3 {
-        font-size: 1rem;
-    }
-
-    .word-rotate {
-        max-width: 180px;
+    .skill-info {
+        font-size: 0.75rem;
+        line-height: 1.3;
+        padding: 4px 6px;
     }
 }
