@@ -35,6 +35,8 @@
    -webkit-backface-visibility: hidden;
    max-height: 80vh;
    overflow:hidden;
+   pointer-events: none;
+   max-height: 50vh;
 }
 
 .main{
