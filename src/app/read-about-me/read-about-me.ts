@@ -56,6 +56,9 @@ export class ReadAboutMe implements AfterViewInit, OnDestroy {
 
     const headerRect = this.headerRef.nativeElement.getBoundingClientRect();
     const titleEl = this.titleRef.nativeElement as HTMLElement;
+    if (titleEl.offsetHeight > window.innerHeight * 0.8) {
+      this.renderer.setStyle(titleEl, 'font-size', `${window.innerHeight * 0.08}px`);
+    }
     const titleRect = titleEl.getBoundingClientRect();
 
     // Recalculate finalCenter each scroll to pick up any padding changes
