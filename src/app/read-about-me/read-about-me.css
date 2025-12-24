@@ -34,7 +34,7 @@
    backface-visibility: hidden;
    -webkit-backface-visibility: hidden;
    max-height: 80vh;
-   overflow-wrap: break-word;
+   overflow:hidden;
 }
 
 .main{
