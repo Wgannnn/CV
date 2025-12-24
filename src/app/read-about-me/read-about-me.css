@@ -2,6 +2,7 @@
 
 .container {
     width: 100%;
+    background: linear-gradient(159.17deg, #0d0d0d -9.41%, #071018 97.45%);
 }
 
 .header {
@@ -41,7 +42,6 @@
 
 /* Journey section styles */
 .main {
-    background: #071018;
     min-height: 100svh;
     display: flex;
     justify-content: center;

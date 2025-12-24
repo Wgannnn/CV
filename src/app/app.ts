@@ -1,6 +1,7 @@
 import { Component, AfterViewChecked, ElementRef, ViewChild, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule, RouterOutlet } from '@angular/router';
+import { Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,10 @@ import { Router, RouterModule, RouterOutlet } from '@angular/router';
 export class App implements AfterViewChecked, OnInit {
   @ViewChild('menu') menu!: ElementRef;
 
-  constructor(public router: Router) {}
+  constructor(
+    public router: Router,
+    private renderer: Renderer2
+  ) { }
 
   ngOnInit(): void {
     this.setupCursorTracking();
@@ -57,19 +61,20 @@ export class App implements AfterViewChecked, OnInit {
     });
 
     // Track interactive elements for spinning cursor
-    document.addEventListener('mouseover', (event: MouseEvent) => {
+    this.renderer.listen('document', 'mouseover', (event: MouseEvent) => {
       const target = event.target as HTMLElement;
       if (this.isInteractive(target)) {
         cursorEl.classList.add('spinning');
       }
     });
 
-    document.addEventListener('mouseout', (event: MouseEvent) => {
+    this.renderer.listen('document', 'mouseout', (event: MouseEvent) => {
       const target = event.target as HTMLElement;
-      if (this.isInteractive(target)) {
+      if (!this.isInteractive(target)) {
         cursorEl.classList.remove('spinning');
       }
     });
+
 
     // Hide cursor when leaving the window
     document.addEventListener('mouseleave', () => {
@@ -82,12 +87,8 @@ export class App implements AfterViewChecked, OnInit {
   }
 
   private isInteractive(el: HTMLElement): boolean {
-    // Check if element is clickable or hoverable
-    const tagName = el.tagName.toLowerCase();
-    const isButton = tagName === 'button' || tagName === 'a' || tagName === 'input';
-    const hasClickListener = el.style.cursor === 'pointer' || el.onclick !== null;
-    const hasHoverStyles = window.getComputedStyle(el).cursor === 'pointer';
-    
-    return isButton || hasClickListener || hasHoverStyles;
+    return !!el.closest(
+      'a, button, input, textarea, select, [role="button"], [tabindex]'
+    ) || window.getComputedStyle(el).cursor === 'pointer';
   }
 }
