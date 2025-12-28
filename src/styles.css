@@ -11,13 +11,14 @@ body {
 * {
   cursor: none !important;
 }
-html{
+html {
   scroll-behavior: smooth;
 }
 
 
 body {
   -webkit-overflow-scrolling: touch;
+  
 }
 
 /* Custom crosshair cursor */

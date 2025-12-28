@@ -2,6 +2,20 @@ import { Component, AfterViewChecked, ElementRef, ViewChild, OnInit } from '@ang
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { Renderer2 } from '@angular/core';
+import { NavigationEnd} from '@angular/router';
+import { Injectable } from '@angular/core';
+import { RouteReuseStrategy, ActivatedRouteSnapshot, DetachedRouteHandle } from '@angular/router';
+
+@Injectable({ providedIn: 'root' })
+export class NoReuseStrategy implements RouteReuseStrategy {
+  shouldDetach(route: ActivatedRouteSnapshot): boolean { return false; }
+  store(route: ActivatedRouteSnapshot, handle: DetachedRouteHandle | null): void {}
+  shouldAttach(route: ActivatedRouteSnapshot): boolean { return false; }
+  retrieve(route: ActivatedRouteSnapshot): DetachedRouteHandle | null { return null; }
+  shouldReuseRoute(future: ActivatedRouteSnapshot, curr: ActivatedRouteSnapshot): boolean {
+    return false; // never reuse, always create fresh
+  }
+}
 
 @Component({
   selector: 'app-root',
@@ -11,12 +25,19 @@ import { Renderer2 } from '@angular/core';
   styleUrls: ['./app.css']
 })
 export class App implements AfterViewChecked, OnInit {
+  routeKey = 0;
   @ViewChild('menu') menu!: ElementRef;
 
   constructor(
     public router: Router,
     private renderer: Renderer2
-  ) { }
+  ) {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        window.scrollTo(0, 0);
+      }
+    });
+  }
 
   ngOnInit(): void {
     this.setupCursorTracking();

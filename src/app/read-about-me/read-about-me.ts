@@ -14,9 +14,6 @@ export class ReadAboutMe implements AfterViewInit, OnDestroy {
 
   private scrollUnlisten: (() => void) | null = null;
   private resizeUnlisten: (() => void) | null = null;
-  private lampRaf = 0;
-  private lastNightness = 0;
-  private nightTimeout: number | null = null;
 
   // cached geometry
   private headerHeight = 0;

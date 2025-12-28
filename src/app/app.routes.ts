@@ -7,7 +7,7 @@ import { Contact } from './contact/contact';
 export const routes: Routes = [
   { path: '', component: Introduction, data: { animation: 'Home' } },
   { path: 'about', component: ReadAboutMe, data: { animation: 'About' } },
-  { path: 'career', component: CareerHistory, data: { animation: 'Career' } },
+  { path: 'projects', component: CareerHistory, data: { animation: 'Projects' } },
   { path: 'contact', component: Contact, data: { animation: 'Contact' } },
   { path: '**', redirectTo: '' }
 ];

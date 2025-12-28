@@ -1,10 +1,13 @@
 import { bootstrapApplication } from '@angular/platform-browser';
+import { RouteReuseStrategy } from '@angular/router';
 import { App } from './app/app';
-import { provideRouter } from '@angular/router';
 import { routes } from './app/app.routes';
+import { provideRouter, withInMemoryScrolling } from '@angular/router';
+import { NoReuseStrategy } from './app/app';
 
 bootstrapApplication(App, {
   providers: [
-    provideRouter(routes)
+    provideRouter(routes, withInMemoryScrolling({ scrollPositionRestoration: 'top' })),
+    { provide: RouteReuseStrategy, useClass: NoReuseStrategy }
   ]
 });
