@@ -5,6 +5,7 @@ import { Renderer2 } from '@angular/core';
 import { NavigationEnd} from '@angular/router';
 import { Injectable } from '@angular/core';
 import { RouteReuseStrategy, ActivatedRouteSnapshot, DetachedRouteHandle } from '@angular/router';
+import { routeAnimations } from './route-animations';
 
 @Injectable({ providedIn: 'root' })
 export class NoReuseStrategy implements RouteReuseStrategy {
@@ -22,9 +23,13 @@ export class NoReuseStrategy implements RouteReuseStrategy {
   standalone: true,
   imports: [CommonModule, RouterModule, RouterOutlet],
   templateUrl: './app.html',
-  styleUrls: ['./app.css']
+  styleUrls: ['./app.css'],
+  animations: [routeAnimations]
 })
 export class App implements AfterViewChecked, OnInit {
+  prepareRoute(outlet: RouterOutlet) {
+  return outlet?.activatedRouteData?.['animation'];
+}
   routeKey = 0;
   @ViewChild('menu') menu!: ElementRef;
 
@@ -109,7 +114,7 @@ export class App implements AfterViewChecked, OnInit {
 
   private isInteractive(el: HTMLElement): boolean {
     return !!el.closest(
-      'a, button, input, textarea, select, [role="button"], [tabindex]'
+      'a, button, input, textarea, select, [role="button"], [tabindex], [contenteditable], li, [role="link"], [class*=belief-card], [class*=rotating-card], [class*=skill-card]'
     ) || window.getComputedStyle(el).cursor === 'pointer';
   }
 }

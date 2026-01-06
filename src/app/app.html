@@ -6,4 +6,9 @@
     <li><a routerLink="/contact" [class.active]="router.url === '/contact'">CONTACT</a></li>
   </ul>
 </nav>
-<router-outlet></router-outlet>
+<div
+  [@routeAnimations]="prepareRoute(outlet)"
+  class="router-wrapper"
+>
+  <router-outlet #outlet="outlet"></router-outlet>
+</div>

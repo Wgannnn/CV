@@ -37,14 +37,16 @@ export class ReadAboutMe implements AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit(): void {
-    // compute geometry based on current scroll, not assuming top
-    this.prepareGeometry();
+    // Wait until route animation + layout is stable
+    requestAnimationFrame(() => {
+      setTimeout(() => {
+        this.prepareGeometry();
+        this.onScroll();
 
-    // immediately apply the scroll transform for current position
-    this.onScroll();
-
-    this.scrollUnlisten = this.renderer.listen('window', 'scroll', () => this.onScroll());
-    this.resizeUnlisten = this.renderer.listen('window', 'resize', () => this.onResize());
+        this.scrollUnlisten = this.renderer.listen('window', 'scroll', () => this.onScroll());
+        this.resizeUnlisten = this.renderer.listen('window', 'resize', () => this.onResize());
+      }, 0);
+    });
   }
 
 
